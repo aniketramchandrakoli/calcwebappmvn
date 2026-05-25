@@ -9,6 +9,7 @@ pipeline {
       tools {
          maven 'xyz-maven'
      //    dockerTool 'my-docker'
+		       sonarQube 'sonar-install'
       }
     stages {
         stage('Git Checkout') {
