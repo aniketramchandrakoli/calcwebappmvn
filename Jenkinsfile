@@ -5,7 +5,7 @@ pipeline {
     environment {
         cluster_name = "my-cluster-1"
         Region = "us-west-2"
-        IMAGE_NAME = "calcwebappmvn:${BUILD_NUMBER}"
+        IMAGE_NAME = "calcwebappmvn:v1"
         my_aws_access = credentials('my-aws-cred')
     }
     tools {
@@ -78,7 +78,7 @@ pipeline {
                 sh 'aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 964742912902.dkr.ecr.us-west-2.amazonaws.com'
                 echo "Logged in to AWS ECR Successfully!!"
 
-                sh 'docker tag ${IMAGE_NAME} 964742912902.dkr.ecr.us-west-2.amazonaws.com/dev/calculator:${BUILD_NUMBER}'
+                sh 'docker tag ${IMAGE_NAME} 964742912902.dkr.ecr.us-west-2.amazonaws.com/dev/calculator:v1'
                 echo "Docker Image Tagged Successfully!!"
                 sh 'docker images'
             }
@@ -86,7 +86,7 @@ pipeline {
 
         stage('Push to ECR') {
             steps {
-                sh 'docker push 964742912902.dkr.ecr.us-west-2.amazonaws.com/dev/calculator:${BUILD_NUMBER}'
+                sh 'docker push 964742912902.dkr.ecr.us-west-2.amazonaws.com/dev/calculator:v1'
                 echo "Docker Image Pushed to ECR Successfully!!"
             }
         }
