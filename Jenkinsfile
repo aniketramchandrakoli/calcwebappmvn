@@ -122,6 +122,7 @@ pipeline {
 
                 sh 'kubectl apply -f calc-deployment-svc.yaml'
                 sh 'kubectl get all'
+                sh 'sleep 20'
                 sh 'kubectl get svc -o wide'
                 echo ".war application deployed to EKS cluster successfully!!"
 
