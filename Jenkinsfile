@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
         // cluster_name = "my-cluster-1"
-         Region = "us-west-2"
+         Region = "eu-west-1"
         // IMAGE_NAME = "calcwebappmvn:v1"
         // my_aws_access = credentials('my-aws-cred')
     }
