@@ -53,7 +53,6 @@ pipeline {
             steps {
                 sh 'ls -la'
                 sh 'mvn clean'
-                sh 'mvn compile'
                 sh 'mvn package'
                 echo "Maven Package Goal Executed Successfully!";
                 sh 'ls -la'
