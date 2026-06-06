@@ -24,13 +24,13 @@ pipeline {
             }
         }
 
-        // stage('SonarQube analysis') {
-        //     steps {
-        //         withSonarQubeEnv('sonar') {
-        //             sh 'mvn clean verify sonar:sonar'
-        //         }
-        //     }
-        // }
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn clean verify sonar:sonar'
+                }
+            }
+        }
 
         // stage('Quality Gate') {
         //     steps {
